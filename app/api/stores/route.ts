@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 import prismadb from "@/lib/prismadb";
 
 
-export async function POST (
+export async function POST(
     req: Request,
 ) {
     try {
@@ -14,7 +14,7 @@ export async function POST (
         const { name } = body;
 
         if (!userId) {
-            return new NextResponse("Unauthorised", { status:401 });
+            return new NextResponse("Unauthorised", { status: 401 });
         }
 
         if (!name) {
@@ -24,8 +24,8 @@ export async function POST (
         const store = await prismadb.store.create({
            data: {
             name, 
-            userId
-           } 
+            userId,
+           },
         });
 
         return NextResponse.json(store);
