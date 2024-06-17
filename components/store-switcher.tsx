@@ -1,8 +1,8 @@
 "use client";
 
-import { store } from "@prisma/client";
+import { Store } from "@prisma/client";
 import { useParams, useRouter } from "next/navigation";
-import { Check, ChevronsUpDown, PlusCircle, Store, StoreIcon } from "lucide-react";
+import { Check, ChevronsUpDown, PlusCircle, Store as StoreReact, StoreIcon } from "lucide-react";
 
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { useStoreModal } from "@/hooks/use-store-modal";
@@ -22,7 +22,7 @@ import {
 type PopoverTriggerProps = React.ComponentPropsWithRef<typeof PopoverTrigger>
 
 interface StoreSwitcherProps extends PopoverTriggerProps {
-    items: store[];
+    items: Store[];
 };
 
 export default function StoreSwitcher ({
@@ -58,7 +58,7 @@ export default function StoreSwitcher ({
                     aria-label="Select a store"
                     className={cn("w-[200px] justify-between", className)}
                 >
-                    <Store className="mr-2 h-4 w-4"/>
+                    <StoreReact className="mr-2 h-4 w-4"/>
                     {currentStore?.label}
                     <ChevronsUpDown className="ml-auto h-4 w-4 shrink-0 opacity-50" />
                 </Button>
